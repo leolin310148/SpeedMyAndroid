@@ -24,8 +24,8 @@ public abstract class SpeedView {
 
     protected abstract View findViewById(int id);
 
-    public View just(int id) {
-        return findViewById(id);
+    public <T extends View> T just(int id) {
+        return (T) findViewById(id);
     }
 
     public ViewChain view(int id) {

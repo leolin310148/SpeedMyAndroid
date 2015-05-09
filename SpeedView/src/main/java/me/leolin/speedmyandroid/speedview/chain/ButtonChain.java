@@ -7,7 +7,7 @@ import me.leolin.speedmyandroid.speedview.action.TextAction;
 /**
  * @author leolin
  */
-public class ButtonChain extends Chain<Button,ButtonChain> implements TextAction {
+public class ButtonChain extends Chain<Button, ButtonChain> implements TextAction {
     public ButtonChain(Button view, SpeedView wrapper) {
         super(view, wrapper);
     }
@@ -19,5 +19,9 @@ public class ButtonChain extends Chain<Button,ButtonChain> implements TextAction
         return this;
     }
 
-
+    @Override
+    public ButtonChain textRes(int resId) {
+        view.setText(resId);
+        return this;
+    }
 }

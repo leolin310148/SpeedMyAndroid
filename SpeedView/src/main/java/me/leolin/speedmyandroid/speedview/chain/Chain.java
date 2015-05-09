@@ -7,7 +7,7 @@ import me.leolin.speedmyandroid.speedview.SpeedView;
 /**
  * @author leolin
  */
-public abstract class Chain<T extends View, C extends Chain> {
+public abstract class Chain<T extends View, C extends Chain> extends SpeedView {
     protected T view;
 
     private SpeedView wrapper;
@@ -17,8 +17,9 @@ public abstract class Chain<T extends View, C extends Chain> {
         this.wrapper = wrapper;
     }
 
-    public SpeedView and() {
-        return wrapper;
+    @Override
+    protected View findViewById(int id) {
+        return wrapper.just(id);
     }
 
     public C visible(int visibility) {

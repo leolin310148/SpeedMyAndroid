@@ -7,7 +7,7 @@ import me.leolin.speedmyandroid.speedview.action.TextAction;
 /**
  * @author leolin
  */
-public class TextViewChain extends Chain<TextView,TextViewChain> implements TextAction {
+public class TextViewChain extends Chain<TextView, TextViewChain> implements TextAction {
     public TextViewChain(TextView view, SpeedView wrapper) {
         super(view, wrapper);
     }
@@ -15,6 +15,12 @@ public class TextViewChain extends Chain<TextView,TextViewChain> implements Text
     @Override
     public TextViewChain text(String text) {
         view.setText(text);
+        return this;
+    }
+
+    @Override
+    public TextViewChain textRes(int resId) {
+        view.setText(resId);
         return this;
     }
 }
