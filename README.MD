@@ -17,7 +17,7 @@ I'm just a LAZY guy tired of findViewById in android.
             students.add(new Student("1", "Steve"));
             students.add(new Student("2", "John"));
             students.add(new Student("3", "Mary"));
-            students.add(new Student("3", "Jason"));
+            students.add(new Student("4", "Jason"));
     
             studentSpeedListAdapter = new SpeedListAdapter<>(students, R.layout.listitem_student, getLayoutInflater(), (speedView, student) -> {
                 speedView
