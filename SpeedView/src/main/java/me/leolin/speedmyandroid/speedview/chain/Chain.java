@@ -90,7 +90,7 @@ public abstract class Chain<T extends View, C extends Chain> extends SpeedView {
     }
 
 
-    public T getView() {
+    public T get() {
         return view;
     }
 

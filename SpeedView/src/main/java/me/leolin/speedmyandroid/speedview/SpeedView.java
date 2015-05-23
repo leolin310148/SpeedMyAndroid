@@ -14,6 +14,7 @@ import me.leolin.speedmyandroid.speedview.wrapper.ViewWrapper;
  * @author leolin
  */
 public abstract class SpeedView {
+
     public static SpeedView with(View view) {
         return new ViewWrapper(view);
     }
