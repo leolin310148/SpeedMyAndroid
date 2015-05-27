@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import me.leolin.speedmyandroid.speedview.chain.*;
@@ -47,5 +48,9 @@ public abstract class SpeedView {
 
     public ListViewChain list(int id) {
         return new ListViewChain((ListView) findViewById(id), this);
+    }
+
+    public EditTextChain et(int id) {
+        return new EditTextChain((EditText) findViewById(id), this);
     }
 }

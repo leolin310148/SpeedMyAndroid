@@ -36,15 +36,33 @@ public class MainActivity extends Activity {
         });
 
         // @formatter:off
-        SpeedView.with(this)
-                .tv(R.id.textView1).text("Hello SpeedView")
-                .tv(R.id.textView2).text(":)").show().text("Amazing!")
-                .btn(R.id.button).text("Click me!")
+        SpeedView speedView = SpeedView.with(this);
+        speedView
+                .tv(R.id.textView1)
+                    .text("Hello SpeedView")
+                .tv(R.id.textView2)
+                    .text(":)")
+                    .show()
+                    .text("Amazing!")
+                .btn(R.id.button)
+                    .text("Click me!")
                     .click(v -> Toast.makeText(this, "Button clicked", Toast.LENGTH_SHORT).show())
-                .container(R.id.container).addView(textView)
-                .list(R.id.listview).adapter( studentSpeedListAdapter)
+                .container(R.id.container)
+                    .addView(textView)
+                .list(R.id.listview)
+                    .adapter(studentSpeedListAdapter)
                     .itemClick((parent, view, position, id) -> Toast.makeText(this, "click position:" + position, Toast.LENGTH_SHORT).show())
-                .view(R.id.textViewWillBeDisappear).hide();
+                .view(R.id.textViewWillBeDisappear)
+                    .hide()
+                .btn(R.id.buttonAddStudent)
+                    .click(v -> {
+                        Student student = new Student();
+                        speedView
+                                .et(R.id.editTextStudentId).getStringThen(student::setId)
+                                .et(R.id.editTextStudentName).getStringThen(student::setName);
+                        students.add(student);
+                        studentSpeedListAdapter.setDataAndRefresh(students);
+                    });
         // @formatter:on
     }
 

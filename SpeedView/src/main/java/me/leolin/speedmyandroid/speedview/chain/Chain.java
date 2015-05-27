@@ -1,8 +1,11 @@
 package me.leolin.speedmyandroid.speedview.chain;
 
+import android.annotation.TargetApi;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.view.View;
 import me.leolin.speedmyandroid.speedview.SpeedView;
+import me.leolin.speedmyandroid.speedview.action.MoreAction;
 
 /**
  * @author leolin
@@ -79,6 +82,7 @@ public abstract class Chain<T extends View, C extends Chain> extends SpeedView {
         return (C) this;
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public C bg(Drawable drawable) {
         view.setBackground(drawable);
         return (C) this;
@@ -86,6 +90,11 @@ public abstract class Chain<T extends View, C extends Chain> extends SpeedView {
 
     public C bgRes(int id) {
         view.setBackgroundResource(id);
+        return (C) this;
+    }
+
+    public C more(MoreAction<T> action) {
+        action.more(view);
         return (C) this;
     }
 
