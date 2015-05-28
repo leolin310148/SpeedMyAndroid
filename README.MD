@@ -1,4 +1,17 @@
-I'm just a LAZY guy tired of findViewById in android.
+SpeedView
+===================================
+    
+makes android developing faster
+
+
+USAGE
+===================================
+
+    dependencies {
+        compile "me.leolin:SpeedView:0.0.+"
+    }
+
+EXAMPLE
 ===================================
     
     public class MainActivity extends Activity {
@@ -40,3 +53,9 @@ I'm just a LAZY guy tired of findViewById in android.
     
     
     }
+
+
+DEVELOP BY
+===================================
+
+Leo Lin([https://github.com/leolin310148](https://github.com/leolin310148))

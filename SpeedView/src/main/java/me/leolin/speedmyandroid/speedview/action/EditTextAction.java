@@ -9,4 +9,5 @@ public interface EditTextAction {
     <T extends Chain> T showAsText();
 
     <T extends Chain> T showAsPassword();
+
 }

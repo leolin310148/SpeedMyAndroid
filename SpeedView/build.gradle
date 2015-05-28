@@ -16,7 +16,7 @@ apply plugin: 'com.jfrog.bintray'
 def siteUrl = 'https://github.com/leolin310148/SpeedMyAndroid'      // Homepage URL of the library
 def gitUrl = 'https://github.com/leolin310148/SpeedMyAndroid.git'   // Git repository URL
 
-version = "0.0.4"
+version = "0.0.5"
 group = "me.leolin"
 
 repositories {

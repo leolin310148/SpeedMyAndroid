@@ -11,6 +11,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 
 repositories {
+    mavenLocal()
     jcenter()
 }
 
@@ -39,5 +40,6 @@ android {
 }
 
 dependencies {
+//    compile "me.leolin:SpeedView:0.0.+"
     compile project(":SpeedView")
 }

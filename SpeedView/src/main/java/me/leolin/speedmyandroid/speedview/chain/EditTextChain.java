@@ -34,6 +34,11 @@ public class EditTextChain extends Chain<EditText, EditTextChain> implements Edi
         return this;
     }
 
+    public EditTextChain getIntegerThen(Action1<Integer> then) {
+        then.call(Integer.parseInt(view.getText().toString()));
+        return this;
+    }
+
     @Override
     public EditTextChain text(String text) {
         view.setText(text);
@@ -45,4 +50,6 @@ public class EditTextChain extends Chain<EditText, EditTextChain> implements Edi
         view.setText(resId);
         return this;
     }
+
+
 }
