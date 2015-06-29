@@ -2,8 +2,10 @@ package me.leolin.speedme.sample;
 
 import android.app.Activity;
 import android.os.Bundle;
-import me.leolin.speedmyandroid.speedview.SpeedView;
-import me.leolin.speedmyandroid.speedview.chain.EditTextChain;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+import android.view.View;
+import android.widget.*;
 
 /**
  * @author leolin
@@ -15,19 +17,33 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        SpeedView speedView = SpeedView.with(this);
-        //@formatter:off
-        speedView
-                .chkbox(R.id.checkBoxShowPassword)
-                .change((buttonView, isChecked) -> {
-                    EditTextChain passwordEtChain = speedView.et(R.id.editTextPassword);
-                    if (isChecked) {
-                        passwordEtChain.showAsText();
-                    } else {
-                        passwordEtChain.showAsPassword();
+        EditText editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        EditText editTextAccount = (EditText) findViewById(R.id.editTextPassword);
+
+        CheckBox checkBox = (CheckBox) findViewById(R.id.checkBoxShowPassword);
+        checkBox.setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        if (isChecked) {
+                            editTextPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                        } else {
+                            editTextPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                        }
                     }
-                })
-                .btn(R.id.buttonLogin)    ;
-        //@formatter:on
+                }
+        );
+
+        Button buttonLogin = (Button) findViewById(R.id.buttonLogin);
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String account = editTextAccount.getText().toString();
+                String password = editTextPassword.getText().toString();
+                Toast.makeText(LoginActivity.this, "Login with account=" + account + ",password=" + password, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
 }

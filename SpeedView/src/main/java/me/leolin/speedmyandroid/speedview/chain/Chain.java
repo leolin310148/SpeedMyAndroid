@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.View;
 import me.leolin.speedmyandroid.speedview.SpeedView;
+import me.leolin.speedmyandroid.speedview.action.Action0;
 import me.leolin.speedmyandroid.speedview.action.MoreAction;
 
 /**
@@ -53,6 +54,16 @@ public abstract class Chain<T extends View, C extends Chain> extends SpeedView {
         return (C) this;
     }
 
+    public C click(final Action0 action) {
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                action.call();
+            }
+        });
+        return (C) this;
+    }
+
 
     public C enableIf(boolean condition) {
         return condition ? enable() : disable();
@@ -94,6 +105,11 @@ public abstract class Chain<T extends View, C extends Chain> extends SpeedView {
     }
 
     public C more(MoreAction<T> action) {
+        action.more(view);
+        return (C) this;
+    }
+
+    public C then(MoreAction<T> action) {
         action.more(view);
         return (C) this;
     }

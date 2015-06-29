@@ -18,7 +18,9 @@ public class MenuActivity extends Activity {
 
     static {
         ACTIVITIES.put(0, LoginActivity.class);
-        ACTIVITIES.put(1, MainActivity.class);
+        ACTIVITIES.put(1, LoginActivityWithSpeedView.class);
+        ACTIVITIES.put(2, MainActivity.class);
+        ACTIVITIES.put(3, MainActivity.class);
     }
 
 

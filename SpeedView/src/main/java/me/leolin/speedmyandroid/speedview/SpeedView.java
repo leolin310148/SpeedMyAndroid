@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import me.leolin.speedmyandroid.speedview.chain.*;
+import me.leolin.speedmyandroid.speedview.value.ValueProvider;
 import me.leolin.speedmyandroid.speedview.wrapper.ActivityWrapper;
 import me.leolin.speedmyandroid.speedview.wrapper.ViewWrapper;
 
@@ -56,4 +57,7 @@ public abstract class SpeedView {
     }
 
 
+    public static ValueProvider Value() {
+        return new ValueProvider();
+    }
 }
